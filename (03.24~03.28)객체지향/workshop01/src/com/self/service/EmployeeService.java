@@ -1,6 +1,6 @@
 package com.self.service;
 
-import com.self.service.EmployeeServic;
+import com.self.service.EmployeeService;
 import com.self.vo.Employee;
 import com.self.vo.Engineer;
 import com.self.vo.Manager;
@@ -9,7 +9,9 @@ public class EmployeeService {
 	//1. 
 	Employee[] emps;
 	int idx = 0;
-		private static EmployeeService service = new EmployeeService(10);
+	
+	private static EmployeeService service = new EmployeeService(20);
+	
 		//2.
 		public EmployeeService(int size) {
 			emps = new Employee[size];
@@ -27,25 +29,31 @@ public class EmployeeService {
 			for(int i = 0; i<idx; i++) {
 				if(emps[i].getName().equals(name)) {
 					for(int j = i; j<idx; j++) {
-						emps[j] = emps[j+1];//왜?
+						emps[j] = emps[j+1];
 					}
 					emps[idx] = null;
 					idx --; 
 				}
 			}
 		}
+
 		
-//		public void updateEmployee(String name) {
-//			Employee e = null;
-//			for(Employee employee: emps) {
-//				if(employee==null) continue; 
-//				if(employee instanceof Manager ) {
-//						e = employee;
-//					}
-//				
-//			}return e;
-//			
-//		}
+		public void printEmployees(String job) {
+			for(Employee employee: emps) {
+				if(employee==null) continue;
+				if(job.equals("m")) {
+					if(employee instanceof Manager) {
+						System.out.println(employee);
+					}
+				}
+				if(job.equals("e")) {
+					if(employee instanceof Engineer) {
+						System.out.println(employee);
+					}
+				}
+			}
+		}
+		
 		
 		public Employee findEmployee(String name) {
 			Employee e = null;
@@ -69,125 +77,68 @@ public class EmployeeService {
 			}
 			return temp;
 		}
-//		public Employee[] findEmployee(Employee[] ea, String dept) {
-////			리턴타입이 컨테이너일 때 생성하고
-//			Employee[] temp = new Employee[ea.length ];
-//			int idx = 0;
-//			for(Employee e: ea) {
-//				if(e instanceof Manager) {
-//					if(((Manager) e).getDept().equals(dept)) {
-//						temp[idx++] = e;
-//					}
-//				}
-//			}
-//			return temp;
-//			}
-//		
-//	
-//	Manager[ ] ms;
-//	int midx;
-//	
-//	Engineer[ ] egs;
-//	int egidx;	
-//
-//	public EmployeeService(int size){
-//		ms = new Manager[size];
-//		egs = new Engineer[size];
-//	}
-//	public void addManager(Manager m) {	
-//		ms[midx++] = m;
-//	}
-//	public void addEngineer(Engineer eg) {	
-//		egs[egidx++] = eg;
-//	}
-//	public void deleteManager(String name) {	
-//		for(int i=0; i<midx; i++) {
-//			if(ms[i].getName().equals(name)) {
-//				for(int j=i; j<midx; j++) {
-//					ms[j] = ms[j+1];
-//				}
-//				ms[midx] = null;
-//				midx--;
-//			}
-//		}
-//	}
-//	public void deleteEngineer(String name) {
-//		for(int i=0; i<egidx; i++) {
-//			if(egs[i].getName().equals(name)) {
-//				for(int j=i; j<egidx; j++) {
-//					egs[j] = egs[j+1];
-//				}
-//				egs[egidx] = null;
-//				egidx--;
-//			}
-//		}
-//	}
-//	public void updateManager(double salary, String dept,int deptno, String name) {	
-//		for(Manager manager : ms) {	
-//			if(manager==null) continue;
-//			if(manager.getName().equals(name)) {
-//				manager.setSalary(salary);
-//				manager.setDept(dept);	
-//				manager.setDeptno(deptno);				
-//			}			
-//		}
-//	}
-//	public void updateEngineer(Engineer eg) {	
-//		for(Engineer engineer : egs) {
-//			if(engineer==null) continue;
-//			if(engineer.getName().equals(eg.getName())) {
-//				engineer.setBirthDate(eg.getBirthDate());
-//				engineer.setBonus(eg.getBonus());
-//				engineer.setSalary(eg.getSalary());
-//				engineer.setTech(eg.getTech());
-//			}
-//		}
-//	}	
-//	//Method Overloading
-//	/*
-//	 * 하는일은 똑같은데...처리하는 데이타를 달리할때 쓰는 기법
-//	 * 메소드의 통일감을 강조하면서도 서로다른 데이타를 처리할수 있게끔 해준다.
-//	 */
-//	public Manager findManager(String name) {
-//		Manager m = null;
-//		for(Manager manager : ms) {
-//			if(manager==null) continue;			
-//			if(manager.getName().equals(name))
-//				m = manager;
-//		}
-//		return m;
-//	}
-//	public Manager[ ] findManager(int deptno) {
-//		Manager[ ] temp = new Manager[ms.length];
-//		int count = 0;
-//		for(Manager manager : ms) {
-//			if(manager==null) continue;
-//			if(manager.getDeptno()==deptno) {
-//				temp[count++] = manager;
-//			}
-//		}
-//		return temp;
-//	}
-//	public Engineer findEngineer(String name) {
-//		Engineer eg = null;
-//		return eg;
-//	}	
-//	//추가
-//	public void printManagers() {		
-//		for(Manager m : ms) {
-//			if(m!=null)
-//			System.out.println(m.toString());
-//		}
-//	}
-//	public void printEngineers() {
-//		for(Engineer e : egs) {
-//			if(e!=null)
-//			System.out.println(e);
-//		}
-//	}
-//	
-//	// 총 비용 출력 => 연봉 합
-//	//
-//	
+
+		public void updateEmployee(String dept, int deptno, String name) {
+			for(Employee employee: emps) {
+				if(employee == null) continue;
+				if(employee instanceof Manager) {
+					if(employee.getName().equals(name)) {
+						((Manager) employee).setDept(dept);
+						((Manager) employee).setDeptno(deptno);
+						
+					
+				}
+			}
+		}
+		}
+		public void updateEmployee(double salary, String name) {
+			for(Employee employee: emps) {
+				if (employee==null) continue;
+				if(employee.getName().equals(name)) {
+					employee.setSalary(salary);
+					
+				}
+			}
+		}
+		public void updateEmployee(String tech, double bonus, String name) {
+			for(Employee employee: emps) {
+				if(employee==null) continue;
+				if(employee instanceof Engineer) {
+					if(employee.getName().equals(name)) {
+						((Engineer) employee).setTech(tech);
+						((Engineer) employee).setBonus(bonus);
+						
+					}
+				}
+			}
+		}
+		public void printAllEmployee(String name) {
+			for(Employee employee: emps) {
+				if(employee==null) continue;
+				if(employee.getName().equals(name)) {
+					System.out.println(employee);
+				}
+			}
+		}
+		//추가 총 비용(연봉 합산)
+		
+		public int getAnnualSalary(Employee e) {
+			int annualSalary = 0;
+			annualSalary = (int)(e.getSalary()*12);
+			if(e instanceof Engineer)
+				annualSalary = (int)(e.getSalary()*12+((Engineer) e).getBonus());
+			return annualSalary;
+		}
+		public int getTotalCost() {
+			int tc = 0;
+			for(Employee employee: emps) {
+				if(employee==null) continue;
+				tc +=getAnnualSalary(employee);
+				
+			}
+			return tc;
+			
+		}
+
 }
 
