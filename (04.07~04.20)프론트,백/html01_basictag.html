@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function push(){
+	alert("버튼이 눌러졌어요~!!");
+}
+</script>
+<style type="text/css">
+/* 태그 선택자 지정... 화면 전체 스타일 */
+body{
+width: 600px;
+height: 400px;
+margin: 0 auto; /* 가운데 정렬, 여백을 0으로 + auto */
+
+}
+#order{
+float: left;
+width: 300px;
+ 
+}
+#unorder{
+float: right;
+width: 300px;
+}
+#header{
+color: purple;
+
+}
+
+</style>
+</head>
+<body>
+<div id="header">
+
+<h1>This is heading 1(제목 쓸 때 하는 것))</h1> 
+<h2>This is heading 2(제목 쓸 때 하는 것))</h2>
+<h3>This is heading 3(제목 쓸 때 하는 것))</h3>
+<h4>This is heading 4(제목 쓸 때 하는 것))</h4>
+<h5>This is heading 5(제목 쓸 때 하는 것))</h5>
+<h6>This is heading 6(제목 쓸 때 하는 것))</h6>
+</div>
+
+<br>
+
+<div id ="order">
+<p>Order list</p>
+<p>순번을 가지는 목록 리스트</p>
+<ol>
+   <li><a href="http://java.sun.com">자식으로 여러개의 list를 갖는다</a></li>
+   <li><a href="http://www.oracle.com">oracle</a></li>
+   <li><a href="http://www.naver.com">naver</a></li>
+   <li><a href="https://www.w3schools.com">html</a></li>
+   <li>yeah</li>
+ </ol> 
+</div>  
+
+ <br>
+ 
+ <div id= "unorder">
+<p>UnOrder list</p>
+<p>순번을 가지는 목록 리스트</p>
+ <ul>
+   <li>자식으로 여러개의 list를 갖는다</li>
+   <li>lu</li>
+   <li>list</li>
+ </ul>
+ </div>
+ <hr>
+ <!--  버튼 클릭하면 push함수가 호출=> jsp 함수로 연결 => 선언해두자 -->
+ <button onclick="push()"><a href="http://java.sun.com">눌러주세요</button>
+</body>
+</html>
