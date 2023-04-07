@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body {
+	width: 600px;
+	height: 800px;
+	margin: 0 auto; /* 가운데 정렬, 여백을 0으로 + auto */
+	border: 5px solid red;
+	text-align: center;
+	margin: 0 auto;
+}
+section{
+text-align: left;}
+full{
+width: 550px;
+	height: 700px;
+}
+	
+
+h1 {
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+h2 {
+	font-size: 20px;
+	font-weight: bolder;
+}
+fieldset{
+width:500px;
+height:30px;
+text-align: left;}
+legend{
+text-align: left;
+}
+cost{
+float:left;}
+c{
+word-spacing:10px;}
+d{
+word-spacing:10px;
+text-decoration: line-through;
+}
+e{
+word-spacing:10px;
+text-decoration: underline;
+}
+
+hr{
+clear: both;}
+</style>
+</head>
+<body>
+
+	<header>
+		<h1>Kill 복 순</h1>
+		<h2>==== KB ★ 영화예매 ====</h2>
+		<img alt="Kill 복 순" src="./img/kill.png" width=250px height=350>
+	</header>
+	<full>
+	<section>
+	<theater> <label for="theater">상영관:</label> 
+	<select
+		name="theater" id="theater">
+		<option value="cgv">CGV</option>
+		<option value="megabox">메가박스</option>
+		<option value="lotte">롯데시네마</option>
+	</select> <date> <label for="date">날짜 선택</label> <input type="date"
+		id="birthday" name="birthday"> </date> 
+		</section>
+		
+		<section>
+		 <fieldset>
+         <legend>시간 선택</legend>
+	
+		<input type="radio" name="chk_info" value="08:30">08:30 <input
+			type="radio" name="chk_info" value="11:00">11:00 <input
+			type="radio" name="chk_info" value="14:20">14:20 <input
+			type="radio" name="chk_info" value="17:25">17:25 <input
+			type="radio" name="chk_info" value="20:10">20:10 <input
+			type="radio" name="chk_info" value="23:05">23:05
+        </fieldset>
+        <br>
+        <cost>
+        <c>   요금   </c> <d>₩9,000   </d> <e>₩5,000</e>
+        </cost>
+        <br>
+	<section>
+  <label for="person">인원</label><br>
+  <input type="number" id="person" name="person" value="0"><br>
+  <label for="howmuch">금액</label><br>
+  <input type="number" id="howmuch" name="howmuch" value="0">
+  </section>
+  <section>
+ <label><input type="checkbox" name="옵션" value="옵션" >옵션</label>
+   <fieldset>
+      <label><input type="checkbox" name="color" value="팝콘"> 팝콘</label>
+      <label><input type="checkbox" name="color" value="콜라"> 콜라</label>
+  </fieldset>
+  </section>
+
+</full>
+</body>
+</html>
