@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+div {
+  border: 1px solid black;
+ /* margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px; */
+  
+  /*margin:100px 150px 100px 80px; /* 위/오른쪽/ 아래/왼쪽 */ 
+  /*margin: 100px; /*전부다 100씩*/
+  margin: 100px 200px; /*상하/좌우 */
+  background-color: lightblue;
+  
+  padding: 50px; /*내용물 사이의 간격*/
+  
+}
