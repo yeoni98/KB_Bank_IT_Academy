@@ -1,0 +1,13 @@
+footer {
+  background-color: #cacfd9;
+  height: 60px;
+  vertical-align: middle;
+}
+
+footer ul{
+  list-style-type: none;
+}
+footer ul li{
+  line-height : 30px;
+  text-align: right;
+}
