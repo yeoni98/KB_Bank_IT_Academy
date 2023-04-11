@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function choiceMenu(){
+	var menu = document.frm.menu;
+	//alert(menu.length);
+	/*
+	1. 메뉴를 하나도 고르지 않았다면, 하나의 메뉴는 선택해라.
+	2. 하나 이상의 메뉴를 선택했다면, 선택한 메뉴를 alert 창으로 출력
+	*/
+	var str ="";
+	for(var i = 0; i<menu.length; i++){
+		if(menu[i].checked){
+			str+=menu[i].value;
+			menu[i].checked = false; // 선택 후 다시 checked 된 거 풀기
+		}
+	}
+	if(str=="") alert("하나의 메뉴는 선택하세요")
+	else alert("당신이 선택산 저녁메뉴는 "+str+"입니다.");
+	
+}
+</script>
+</head>
+<body>
+<form name = "frm">
+<strong> 오늘 저녁 드시고 싶은 메뉴를 다 고르세요</strong> <br><br>
+<input type = "checkbox" name = "menu" value = "스파게티">스파게티<br>
+<input type = "checkbox" name = "menu" value = "짬뽕">짬뽕<br>
+<input type = "checkbox" name = "menu" value = "꿔바로우">꿔바로우<br>
+<input type = "checkbox" name = "menu" value = "메로구이">메로구이<br>
+<input type = "button" name = "CHOICE" onclick = "choiceMenu()">
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var myName = "Peter"; // 전역변수
+
+function showInfo(){
+	myAge = 22; // 전역변수
+	//console.info(myAge);
+	
+	//자바스크립트에선 로컬과 전역의 구분이 불분명하다. 그래서 정확히 구분해야 함.
+	// es6, ECMA 2015... let(로컬변수 앞에 지정)
+	let age = 33; // 얜 확실한 로컬
+	var yourAge = 44; // 로컬
+
+}
+//자바스크립트에선 로컬과 전역의 구분이 불분명하다. 그래서 정확히 구분해야 함.
+// es6, ECMA 2015... let(로컬변수 앞에 지정)
+
+
+showInfo();
+console.info(myAge);
+console.info(yourAge);
+console.info(myAge);
+</script>
+</head>
+<body>
+
+</body>
+</html>
