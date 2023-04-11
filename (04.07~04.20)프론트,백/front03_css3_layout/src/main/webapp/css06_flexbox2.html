@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소들을 꽉 채우기</title>
+<!-- flex box에서 요소를 꽉 채우고 싶을 때는 
+
+요소를 얼마나 늘리지 flex-grow, 
+요소를 얼마나 줄일지 flex-shrink  => 크기를 줄인다기 보다는 고정할 때
+
+:: 암기
+1. 대부분의 경우 빈공간을 채우고 싶을 때는 flex-grow를 쓰자.
+2. 어떤 요소의 크기를 내가 원하는 대로 고정하고 싶을 때 flex-shrink
+
+-->
+<style type="text/css">
+	*{
+		box-sizing: border-box;
+	}
+	body{
+		background-color: #f9fafc;
+		margin: 60px;
+		
+		width: 300px;
+		
+	}
+	.container{
+		border: 5px dashed #cacfd9;
+		width: 500px;
+		height: 500px;	
+		display: flex;
+		
+
+	}
+	.box{
+		border-radius: 15px;
+		color: #f9fafc;
+		padding: 30px;
+		width: 300px;
+	}
+	.red{
+		background-color: Tomato;
+		flex-shrink: 0; /*width:300 에서 안 줄어 듦. */
+	}
+	.green{
+	 	background-color: MediumSeaGreen;
+	     /* 상대적인 값 비율 */
+	     /* flex-shrink: 1; */
+	 	
+	 }
+	/* .box:not(:last-child){ /*마지막 제외하고 위에 오른쪽에 30px 공백 주기 
+	 margin-right: 30px; 	
+	 	} */
+	 .blue{
+	 	background-color: DodgerBlue;
+	 	flex-shrink:1; /* 300에서 상대적으로 2만큼 줄어듦. */
+	 	/* red: green: blue = 1:2:3 */
+	 }	
+	
+
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="red box"></div>
+	<div class="green box"></div>
+	<div class="blue box"></div>
+	
+
+</div>
+</body>
+</html>
